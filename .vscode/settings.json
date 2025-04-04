@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "button_handler.h": "c",
+    "delay.h": "c",
+    "oled_display.h": "c"
+  }
+}
