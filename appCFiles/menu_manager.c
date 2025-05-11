@@ -3,8 +3,8 @@
 #include "../appheaderFiles/oled_display.h"
 #include "../appheaderFiles/app.h"
 #include <xc.h>
-#include "../oledDriver/oledC_colors.h"     // ????? OLEDC_COLOR_WHITE / BLACK
-#include "../oledDriver/oledC_shapeHandler.h" // ????? oledC_DrawRectangle
+#include "../oledDriver/oledC_colors.h"     // OLEDC_COLOR_WHITE / BLACK
+#include "../oledDriver/oledC_shapeHandler.h" // oledC_DrawRectangle
 #include "../appheaderFiles/timeSetUp.h"
 #include "../appheaderFiles/display_clock.h"
 
@@ -57,7 +57,7 @@ void exitMenu(void) {
     currentMode = clockMode;
     currentMenuSelection = MENU_PEDOMETER_GRAPH;
     lastMenuSelection = MENU_TOTAL_ITEMS;
-    oldTime = (TimeData){255, 255, 255, 255, 255}; // ? ???? ???
+    oldTime = (TimeData){255, 255, 255, 255, 255}; 
     IEC0bits.T1IE = 1;
 }
 

@@ -41,7 +41,7 @@ void setDateMode(void) {
     UpdateOLEDFormattedText(25, 45, 2, 2, &oldTime.day, currentTime.day, "%02d");
     UpdateOLEDFormattedText(60, 45, 2, 2, &oldTime.month, currentTime.month, "%02d");
 
-    drawSetTimeArrows();  // ? ?? ???? Set Date
+    drawSetTimeArrows();  // Set Date
 }
 
 void toggleClockFormat(void) {
@@ -95,17 +95,12 @@ void drawSetTimeArrows(void) {
     oledC_DrawString(5, 66, 1, 1, (uint8_t *)"S2", OLEDC_COLOR_BLACK);
 
 
-    // === S1+S2 Bi-directional Arrow (?????) ===
-    // ??? ????? ???
+    // === S1+S2 Bi-directional Arrow ===
     oledC_DrawRectangle(20, 83, 75, 91, OLEDC_COLOR_WHITE);
 
-    // ???? ?????? ????? ????? ?
-    oledC_DrawRectangle(15, 85, 19, 89, OLEDC_COLOR_WHITE);  // ??? ??? ??
+    oledC_DrawRectangle(15, 85, 19, 89, OLEDC_COLOR_WHITE);  
 
-    // ???? ????? ????? ????? ?
-    oledC_DrawRectangle(76, 85, 80, 89, OLEDC_COLOR_WHITE);  // ??? ??? ??
+    oledC_DrawRectangle(76, 85, 80, 89, OLEDC_COLOR_WHITE);  
 
-
-    // ???? ?????
     oledC_DrawString(36, 84, 1, 1, (uint8_t *)"S1+S2", OLEDC_COLOR_BLACK);
 }

@@ -7,7 +7,6 @@
 #include "../oledDriver/oledC_shapes.h"
 #include "../appheaderFiles/step_counter.h"
 
-// ? ???? ??? ????? ???app
 extern uint32_t mockTime;
 
 int16_t readAxis(uint8_t regAddress) {
@@ -39,7 +38,7 @@ void checkAccelerometer(void) {
     static uint32_t upsideDownStartTime = 0;
     static bool isWaitingForUpsideDown = false;
 
-    // ? ????? ??? ????? (100ms ??? ?????)
+    // (100ms)
     mockTime += 100;
     uint32_t currentMillis = mockTime;
 
@@ -48,7 +47,6 @@ void checkAccelerometer(void) {
         int16_t y = readAxis(0x34);
         int16_t z = readAxis(0x36);
 
-        // ? ????? ?????
         if ((abs(x - lastX) > SHAKE_THRESHOLD ||
              abs(y - lastY) > SHAKE_THRESHOLD ||
              abs(z - lastZ) > SHAKE_THRESHOLD)) {
@@ -60,7 +58,6 @@ void checkAccelerometer(void) {
             haveBeenSheck = false;
         }
 
-        // ? ????? ????? ???? ???? 2 ?????
         if (z < 0) {
             if (!isWaitingForUpsideDown) {
                 isWaitingForUpsideDown = true;
@@ -70,7 +67,6 @@ void checkAccelerometer(void) {
                 isWaitingForUpsideDown = false;
             }
         } else {
-            // ?? ????? ????? ???? ? ??? ?? ????
             isWaitingForUpsideDown = false;
             upsideDownStartTime = 0;
         }

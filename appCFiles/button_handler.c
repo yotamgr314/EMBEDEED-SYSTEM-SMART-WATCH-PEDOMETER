@@ -51,11 +51,10 @@ void glowS1S2Arrow(void) {
         DELAY_milliseconds(40);
     }
 
-    // ??? 3: ???? ???? ?? ?? ??? ??????????
-    oledC_DrawRectangle(20, 83, 75, 91, OLEDC_COLOR_WHITE);    // ??? ???
+    oledC_DrawRectangle(20, 83, 75, 91, OLEDC_COLOR_WHITE);   
 
-    oledC_DrawRectangle(15, 85, 19, 89, OLEDC_COLOR_WHITE);    // ??? ????
-    oledC_DrawRectangle(76, 85, 80, 89, OLEDC_COLOR_WHITE);    // ??? ????
+    oledC_DrawRectangle(15, 85, 19, 89, OLEDC_COLOR_WHITE);    
+    oledC_DrawRectangle(76, 85, 80, 89, OLEDC_COLOR_WHITE);    
 
     oledC_DrawString(36, 84, 1, 1, (uint8_t *)"S1+S2", OLEDC_COLOR_BLACK);
 }
@@ -66,7 +65,7 @@ void setDateButtonManager(uint8_t newS1, uint8_t newS2) {
         if (!newS1 && newS2) {
             LATAbits.LATA8 = 1;
             LATAbits.LATA9 = 0;
-            glowS1Arrow();  // ???? ????? ?? S1
+            glowS1Arrow();  // S1
             int newValue = currentTime.day + 1;
             if (newValue > 31) newValue = 1;
             UpdateOLEDFormattedText(25, 45, 2, 2, &currentTime.day, newValue, "%02d");
@@ -75,7 +74,7 @@ void setDateButtonManager(uint8_t newS1, uint8_t newS2) {
         if (newS1 && !newS2) {
             LATAbits.LATA8 = 0;
             LATAbits.LATA9 = 1;
-            glowS2Arrow();  // ???? ????? ?? S2
+            glowS2Arrow();  // S2
             int newValue = currentTime.day - 1;
             if (newValue <= 0) newValue = 31;
             UpdateOLEDFormattedText(25, 45, 2, 2, &currentTime.day, newValue, "%02d");
@@ -87,7 +86,7 @@ void setDateButtonManager(uint8_t newS1, uint8_t newS2) {
         if (!newS1 && newS2) {
             LATAbits.LATA8 = 1;
             LATAbits.LATA9 = 0;
-            glowS1Arrow();  // ?? ?? ????
+            glowS1Arrow();  
             int newValue = currentTime.month + 1;
             if (newValue > 12) newValue = 1;
             UpdateOLEDFormattedText(60, 45, 2, 2, &currentTime.month, newValue, "%02d");
@@ -109,7 +108,7 @@ void setDateButtonManager(uint8_t newS1, uint8_t newS2) {
         LATAbits.LATA8 = 1;
         selectedDatesPart = !selectedDatesPart;
         changeSetMode();
-        glowS1S2Arrow();  // ????? ?? S1+S2
+        glowS1S2Arrow();  
     }
 }
 
@@ -188,7 +187,7 @@ void setTimeButtonManager(uint8_t newS1, uint8_t newS2) {
         changeSetMode();
         LATAbits.LATA9 = 1;
         LATAbits.LATA8 = 1;
-        glowS1S2Arrow();  // ????? ????? ????
+        glowS1S2Arrow();  
 
     }
 }
